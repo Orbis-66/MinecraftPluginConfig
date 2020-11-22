@@ -1,0 +1,11 @@
+[MBDiscordLink]
+database_url = test
+roles-to-sync%json = {"staff": "staff_discord_id", "test": "test"}
+
+[MagiBridge]
+main-discord-channel = discord_channel_id
+bot-token = token
+
+[Paths]
+MBDiscordLink = mbdiscordlink
+MagiBridge = magibridge
