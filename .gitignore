@@ -1,0 +1,8 @@
+/.idea
+/config.ini
+!/.config.ini.*
+/config.compiled
+!/config.compiled/.gitignore
+
+
+/var/venv
