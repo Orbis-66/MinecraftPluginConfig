@@ -1,9 +1,7 @@
 import configparser
 import os
-from pprint import pprint
 from pathlib import Path
 import json
-from shutil import copyfile
 
 PATH_SECTION = 'Paths'
 
@@ -52,10 +50,8 @@ def fill_file(config_path, config_key, config_value):
 
     f_in = open(config_path, "rt")
     f_out = open(new_config_path, "wt")
-    print(config_key, config_value)
 
     for line in f_in:
-        print(line.replace('%%%%%s%%%%' % config_key, config_value))
         f_out.write(line.replace('%%%%%s%%%%' % config_key, config_value))
 
     f_in.close()
