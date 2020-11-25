@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 
 PATH_SECTION = 'Paths'
+FILE_SECTION = 'ConfigFiles'
 
 directory = os.getcwd().split('/').pop()
 
@@ -15,6 +16,11 @@ config = Path('config.ini')
 if not config.is_file():
     print("File config.ini not found, you might want to run make setup command")
     exit()
+
+
+class Parser(configparser.ConfigParser):
+    def optionxform(self, optionstr):
+        return optionstr
 
 
 # Will create the path for the new config file and remove it if it already exists
@@ -58,15 +64,16 @@ def fill_file(config_path, config_key, config_value):
     f_out.close()
 
 
-config = configparser.ConfigParser()
+config = Parser()
 config.read('config.ini')
 
 for section in config.sections():
-    if PATH_SECTION == section:
+    if PATH_SECTION == section or FILE_SECTION == section:
         continue
 
     path = config.get(PATH_SECTION, section)
-    path = 'config/%s/%s.conf' % (path, section)
+    filename = config.get(FILE_SECTION, section)
+    path = 'config/%s/%s.conf' % (path, filename)
     if not init_file(path):
         continue
 

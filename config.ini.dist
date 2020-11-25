@@ -6,6 +6,23 @@ roles-to-sync%json = {"staff": "staff_discord_id", "test": "test"}
 main-discord-channel = discord_channel_id
 bot-token = token
 
+[LuckPerms]
+address = localhost
+database = minecraft
+username = root
+password = password
+
+[EpicBanItem]
+pass = pass
+
 [Paths]
 MBDiscordLink = mbdiscordlink
 MagiBridge = magibridge
+LuckPerms = luckperms
+EpicBanItem = epicbanitem
+
+[ConfigFiles]
+MBDiscordLink = MBDiscordLink
+MagiBridge = MagiBridge
+LuckPerms = luckperms
+EpicBanItem = banitem

@@ -11,6 +11,9 @@ setup:
 	cp config.ini.dist config.ini
 
 compile:
-	python3 bin/compile.py
+	python3 bin/compiler.py
 
-.PHONY: setup compile
+update:
+	python3 bin/config-updater.py
+
+.PHONY: setup compile update
